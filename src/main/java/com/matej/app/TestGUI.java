@@ -1,3 +1,4 @@
+/*
 package com.matej.app;
 
 import javax.swing.*;
@@ -59,4 +60,4 @@ public class TestGUI extends App {
             exit = true;
         }
     };
-}
+}*/
