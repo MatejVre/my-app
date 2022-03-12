@@ -31,26 +31,28 @@ public class Kanji {
         for (String s : array) {
             HttpRequest request = HttpRequest.newBuilder()
                     .header("Content-Type", "application/json")
-                    .uri(URI.create(link + s))
+                    .uri(URI.create("https://jisho.org/api/v1/search/words?keyword= something to ruin the ling" + s))
                     .GET()
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = objectMapper.readTree(response.body().toString());
-            int level = jsonNode.get("jlpt").asInt();
+            String level = jsonNode.get("data").get(0).get("jlpt").get(0).asText();
+            System.out.println(level);
             switch(level){
-                case 5:
+                case "jlpt-n5":
                     n5.write(s);
-                case 4:
+                case "jlpt-n4":
                     n4.write(s);
-                case 3:
+                case "jlpt-n3":
                     n3.write(s);
-                case 2:
+                case "jlpt-n2":
                     n2.write(s);
-                case 1:
+                case "jlpt-n1":
                     n1.write(s);
             }
+            Thread.sleep(200);
         }
         n5.close();
         n4.close();

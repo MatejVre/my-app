@@ -17,7 +17,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class App {
-    public static String link = "https://jisho.org/api/v1/search/words?keyword=";
+    public static final String PATH_TO_FILES = "C:\\Users\\matvr\\Desktop\\GIT-repository\\my-app\\src\\main\\java\\com\\matej\\app\\";
+    public static final String link = "https://jisho.org/api/v1/search/words?keyword=";
     public static char kanjiArr[];
     public static ArrayList<String> wordsArr = new ArrayList<>();
     public static Random rand = new Random();
