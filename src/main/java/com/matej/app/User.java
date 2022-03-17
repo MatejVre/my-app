@@ -41,4 +41,16 @@ public class User {
     public float getCorrectGuessPercentage(){
         return correctGuessPercentage;
     }
+
+    public int getNumberOfCorrectGuesses() {
+        return numberOfCorrectGuesses;
+    }
+
+    public int getNumberOfWrongGuesses() {
+        return numberOfWrongGuesses;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
